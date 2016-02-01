@@ -1,0 +1,76 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+  <head>
+    <title>GIF Popup</title>
+    <style>
+      body {
+        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 100%;
+        }
+	  button {
+		  display: inline-block;
+		  background: -webkit-linear-gradient(#F9F9F9 40%, #E3E3E3 70%);
+		  background: linear-gradient(#F9F9F9 40%, #E3E3E3 70%);
+		  border: 1px solid #999;
+		  -webkit-border-radius: 3px;
+		  border-radius: 3px;
+		  padding: 10px 10px;
+		  outline: none;
+		  white-space: nowrap;
+		  -webkit-user-select: none;
+		  user-select: none;
+		  cursor: pointer;
+		  text-shadow: 1px 1px #fff;
+		  font-weight: 700;
+		  font-size: 10pt;
+		}
+		input{
+		  box-shadow: 1px 1px 5px #ccc inset;
+		  border: 1px solid #999;
+		  border-radius: 30px;
+		  padding: 10px 10px;
+		  max-height: 100px;
+		}
+      #buttonPanel {
+        padding: 2px;
+		box-shadow: 1px 1px 5px #ccc inset;
+		border: 1px solid #6089F7;
+		width: 450px;
+      }
+	  nav {
+		display: -webkit-flex;
+		-webkit-justify-content: center;
+		-webkit-align-items: center;
+	  }
+    </style>
+
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+     -->
+    <script src="popup.js"></script>
+	<script src="clipboard.min.js"></script>
+  </head>
+  <body>
+    <div id="buttonPanel"> Control panel <a id="hideButton">(click to hide/show) </a>
+		<div id="navLine">
+			<nav>
+			  GIF Url: <input type="text" id="gif_url">
+			  <button id="save_gif">Save gif!</button>
+			  <button id="clear_gif">Clear gif!</button>
+			</nav>
+		</div>
+	</div>
+	<div id="gallery"> Gallery
+		<div id="gifBoard"></div>
+	</div>
+  </body>
+</html>
+
